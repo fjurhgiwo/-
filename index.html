@@ -1,0 +1,20 @@
+from flask import Flask, request
+import random
+import datetime
+
+app = Flask(__name__)
+
+# 랜덤 이미지 목록 (실제 이미지 파일 경로로 수정해야 합니다)
+images = [
+    "image1.jpg",  # 실제 이미지 경로를 넣으세요
+    "image3.jpg",
+    "image4.jpg"
+]
+
+@app.route('/')
+def index():
+    # 랜덤 이미지 선택
+    selected_image = random.choice(images)
+    
+    # 접속 시간과 IP 기록
+    ip_address = request.remote_a
